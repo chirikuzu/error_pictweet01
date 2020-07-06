@@ -19,6 +19,11 @@ describe User do
         @user.password_confirmation = "000000"
         expect(@user).to be_valid
       end
+      it "2名のuserが登録できる" do
+        @user1 = FactoryBot.create(:user)
+        @user2 = FactoryBot.build(:user)
+        expect(@user2).to be_valid
+      end
     end
 
     context '新規登録がうまくいかないとき' do
